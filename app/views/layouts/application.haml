@@ -1,0 +1,16 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %title Nursing Home Finder
+    %meta{:content => "Free Bootstrap Theme by BootstrapMade.com", :name => "description"}
+    %meta{:content => "free website templates, free bootstrap themes, free template, free bootstrap, free website template", :name => "keywords"}
+    %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal", :rel => "stylesheet", :type => "text/css"}
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    %body#myPage{"data-offset" => "60", "data-spy" => "scroll", "data-target" => ".navbar"}
+      = yield

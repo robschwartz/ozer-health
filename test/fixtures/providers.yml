@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  county: MyString
+  bed_count: 1
+  occupied_beds: 1
+  medicare: false
+  medicade: false
+  holding_company: MyString
+  overall_rating: 1
+  health_inspection_rating: 1
+
+two:
+  name: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  county: MyString
+  bed_count: 1
+  occupied_beds: 1
+  medicare: false
+  medicade: false
+  holding_company: MyString
+  overall_rating: 1
+  health_inspection_rating: 1

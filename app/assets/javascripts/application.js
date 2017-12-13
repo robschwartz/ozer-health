@@ -11,4 +11,10 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery.min
+//= require jquery.easing.min
+//= require bootstrap.min
+//= require cable
+//= require contactform
+//= require custom
 //= require_tree .
