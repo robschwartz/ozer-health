@@ -1,0 +1,25 @@
+.bg-color-results{
+	background-color: RGBA(13, 70, 83, 0.78);
+	min-height: 92px;
+}
+.city-list{
+  li{
+    list-style: none;
+    width: 16%;
+    font-size: 18px;
+    padding-bottom: 5px;
+  }
+}
+
+.provider-container{
+  border-bottom: 1px lightgrey solid;
+  padding: 30px 10px;
+  color: black;
+  font-size: 18px;
+  .provider-name{
+    padding-bottom: 5px;
+  }
+  .provider-address{
+    padding-bottom: 5px;
+  }
+}

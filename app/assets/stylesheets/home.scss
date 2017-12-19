@@ -1,0 +1,34 @@
+.search-submit {
+  margin-top: 8px;
+}
+
+
+.state-section {
+  h2{
+    text-align: center;
+  }
+
+  hr.bottom-line{
+    height: 3px;
+    background: #ffb737;
+    position: relative;
+    border: 0;
+  }
+
+  .state-list{
+    li{
+      list-style: none;
+      width: 26%;
+      margin-left: 21%;
+      font-size: 22px;
+      padding-bottom: 8px;
+    }
+  }
+  hr{
+    width: 80%;
+  }
+}
+
+.alert-error{
+  background-color: cadetblue;
+}

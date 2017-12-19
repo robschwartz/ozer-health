@@ -22,6 +22,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'haml'
 gem "font-awesome-rails"
+gem 'city-state'
 
 
 group :development, :test do

@@ -1,0 +1,58 @@
+.bg-color-results
+  %nav.navbar.navbar-default.navbar-fixed-top
+    .container
+      .col-md-12
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "/"}
+            =image_tag("logo.png", :style => "width: 140px; margin-top: -16px;", class: "img-responsive")
+        #myNavbar.collapse.navbar-collapse.navbar-right
+          %ul.nav.navbar-nav
+            %li.active
+              %a{:href => "/"} Home
+            %li
+              %a{:href => "#service"} Services
+            %li
+              %a{:href => "#about"} About
+            %li
+              %a{:href => "#contact"} Contact
+- if @loc_type == "State"
+  %section#about.section-padding
+    .container
+      .row
+        .section-title
+          %h2.head-title.lg-line
+            Nursing Homes in #{@location} by City
+          %br/
+          %hr.botm-line/
+      .row
+        %ul.city-list.list-inline
+          -@cities.each do |city|
+            %li
+              %a{:href => "/nursing-home-finder/nursing-homes/#{city}?state=#{@location}"}
+                =city
+
+
+%section#about.section-padding
+  .container
+    .row
+      .section-title
+        %h2.head-title.lg-line
+          Showing #{@homes.count} Nursing Homes in #{@location}
+        %br/
+        %hr.botm-line/
+        -@homes.each do |home|
+          .row.provider-container.col-xs-8
+            .col-xs-9
+              .provider-name=home.name
+              .provider-address=Provider.full_address(home)
+              .rating-container
+                Rating:
+                =home.overall_rating
+                of 5
+              %br
+            .col-xs-3
+              More Details

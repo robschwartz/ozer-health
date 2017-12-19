@@ -9,35 +9,48 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            %a.navbar-brand{:href => "#"}
+            %a.navbar-brand{:href => "/"}
               =image_tag("logo.png", :style => "width: 140px; margin-top: -16px;", class: "img-responsive")
           #myNavbar.collapse.navbar-collapse.navbar-right
             %ul.nav.navbar-nav
               %li.active
-                %a{:href => "#banner"} Home
+                %a{:href => "/"} Home
               %li
                 %a{:href => "#service"} Services
               %li
                 %a{:href => "#about"} About
               %li
-                %a{:href => "#testimonial"} Testimonial
-              %li
                 %a{:href => "#contact"} Contact
+              -# %li
+              -# = form_tag(controller: :provider , action: :search) do
+              -#   .form-group
+              -#     %input.form-control{name: 'search', placeholder: 'Enter City, State, or Zip...'}
+              -#     .input-group-btn.col-md-3
+              -#       %button.btn.btn-default.search-submit{type: :submit} Submit
     .container
       .row
         .banner-info
           .banner-logo.text-center
             =image_tag("logo.png", class: "img-responsive")
           .banner-text.text-center
-            %h1.white Healthcare at your desk!!
+            %h1.white Helping you find the perfect nursing home
             %p
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              = succeed "tempor" do
-                %br/
-            %a.btn.btn-appoint{:href => "#contact"} Make an Appointment.
+              Search by City, State, or Zip to find a nursing home closest to you.
+              %br/
+              - flash.each do |key, value|
+                %div{:class => "alert alert-#{key}"}
+                  %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+                  %span{"aria-hidden" => "true"}
+                  = value
+              .row
+                = form_tag(controller: :provider , action: :search) do
+                  .form-group.col-xs-4.col-xs-offset-4
+                    %input.form-control{name: 'search', placeholder: 'Enter City, State, or Zip...'}
+                    %button.btn.btn-default.search-submit{type: :submit} Submit
           .overlay-detail.text-center
             %a{:href => "#service"}
               %i.fa.fa-angle-down
+
 / / banner
 / service
 %section#service.section-padding
@@ -134,78 +147,6 @@
               %h3 It's something important you want to know.
               %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Ut wisi enim ad minim veniam, quis nostrud.
 / / about
-/ doctor team
-%section#doctor-team.section-padding
-  .container
-    .row
-      .col-md-12
-        %h2.ser-title Meet Our Doctors!
-        %hr.botm-line/
-      .col-md-3.col-sm-3.col-xs-6
-        .thumbnail
-          %img.team-img{:alt => "...", :src => "image/doctor1.jpg"}/
-          .caption
-            %h3 Jessica Wally
-            %p Doctor
-            %ul.list-inline
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-facebook
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-twitter
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-google-plus
-      .col-md-3.col-sm-3.col-xs-6
-        .thumbnail
-          %img.team-img{:alt => "...", :src => "image/doctor2.jpg"}/
-          .caption
-            %h3 Iai Donas
-            %p Doctor
-            %ul.list-inline
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-facebook
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-twitter
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-google-plus
-      .col-md-3.col-sm-3.col-xs-6
-        .thumbnail
-          %img.team-img{:alt => "...", :src => "image/doctor3.jpg"}/
-          .caption
-            %h3 Amanda Denyl
-            %p Doctor
-            %ul.list-inline
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-facebook
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-twitter
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-google-plus
-      .col-md-3.col-sm-3.col-xs-6
-        .thumbnail
-          %img.team-img{:alt => "...", :src => "image/doctor4.jpg"}/
-          .caption
-            %h3 Jason Davis
-            %p Doctor
-            %ul.list-inline
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-facebook
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-twitter
-              %li
-                %a{:href => "#"}
-                  %i.fa.fa-google-plus
-/ / doctor team
 / testimonial
 %section#testimonial.section-padding
   .container
@@ -250,22 +191,22 @@
           %h3
             Alex
             %span Texas
-/ / testimonial
-/ cta 2
-%section#cta-2.section-padding
+
+/ State List
+%section.section-padding.state-section
   .container
     .row
-      .col-md-2
-      .text-right-md.col-md-4.col-sm-4
-        %h2.section-title.white.lg-line
-          « A few words
-          %br/
-          about us »
-      .col-md-4.col-sm-5
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a typek
-        %p.text-right.text-primary
-          %i — Medilap Healthcare
-      .col-md-2
+      %h2 Nursing Homes By State
+      %hr.bottom-line
+
+    .row
+      %ul.state-list.list-inline
+        -@states.each do |key, val|
+          %li
+            %a{:href => "/nursing-home-finder/nursing-homes/#{val}"}
+              =val
+  %hr
+
 / cta
 / contact
 %section#contact.section-padding
@@ -311,57 +252,12 @@
               .validation
             .form-action
               %button.btn.btn-form{:type => "submit"} Send Message
-/ / contact
-/ footer
-%footer#footer
-  .top-footer
-    .container
-      .row
-        .col-md-4.col-sm-4.marb20
-          .ftr-tle
-            %h4.white.no-padding About Us
-          .info-sec
-            %p Praesent convallis tortor et enim laoreet, vel consectetur purus latoque penatibus et dis parturient.
-        .col-md-4.col-sm-4.marb20
-          .ftr-tle
-            %h4.white.no-padding Quick Links
-          .info-sec
-            %ul.quick-info
-              %li
-                %a{:href => "index.html"}
-                  %i.fa.fa-circle>
-                  Home
-              %li
-                %a{:href => "#service"}
-                  %i.fa.fa-circle>
-                  Service
-              %li
-                %a{:href => "#contact"}
-                  %i.fa.fa-circle>
-                  Appointment
-        .col-md-4.col-sm-4.marb20
-          .ftr-tle
-            %h4.white.no-padding Follow us
-          .info-sec
-            %ul.social-icon
-              %li.bglight-blue
-                %i.fa.fa-facebook
-              %li.bgred
-                %i.fa.fa-google-plus
-              %li.bgdark-blue
-                %i.fa.fa-linkedin
-              %li.bglight-blue
-                %i.fa.fa-twitter
-  .footer-line
-    .container
-      .row
-        .col-md-12.text-center
-          © Copyright OZER LLC. All Rights Reserved
-          .credits{style: 'font-size: .01px;'}
-            /
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Medilab
-            Designed by
-            %a{:href => "https://bootstrapmade.com/"} BootstrapMade.com
+
+:javascript
+  $("#search").on('click', function(){
+    var searchInput = $('#search-input').val();
+    $.ajax({
+      method: "POST",
+      url: "/provider/search/"+searchInput
+    })
+  })
