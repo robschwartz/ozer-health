@@ -53,6 +53,18 @@
                 Rating:
                 =home.overall_rating
                 of 5
+              .medi
+              Medicare:
+              - if home.medicare
+                .fa.fa-check-square.green
+              - else
+                .fa.fa-minus-square.red
+
+              Medicaid:
+              - if home.medicaid
+                .fa.fa-check-square.green
+              - else
+                .fa.fa-minus-square.red
               %br
             .col-xs-3
               More Details
