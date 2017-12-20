@@ -132,7 +132,7 @@ banner
 }
 .affix .navbar-nav > li > a:hover, .affix .navbar-nav > li > a:focus
 {
-    background-color: rgba(12, 184, 182) !important;
+    background-color: rgba(12, 184, 182, 0) !important;
 }
 #banner{
 	background: asset-url('bg-banner.jpg') no-repeat fixed;
