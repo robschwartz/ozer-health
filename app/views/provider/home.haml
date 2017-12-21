@@ -10,7 +10,8 @@
               %span.icon-bar
               %span.icon-bar
             %a.navbar-brand{:href => "/"}
-              =image_tag("ozer-logo.png", :style => "width: 140px; margin-top: -16px;", class: "img-responsive")
+              -# =image_tag("ozer-logo.png", :style => "width: 140px; margin-top: -16px;", class: "img-responsive")
+              .white Next Step Care
           #myNavbar.collapse.navbar-collapse.navbar-right
             %ul.nav.navbar-nav
               %li.active
@@ -31,7 +32,7 @@
       .row
         .banner-info
           .banner-logo.text-center
-            %h1.white Next Steps Health
+            %h1.white Next Step Care
           .banner-text.text-center
             %h1.white Helping you find the perfect nursing home
             %p
@@ -91,33 +92,20 @@
 %section#cta-1.section-padding
   .container
     .row
-      .schedule-tab
-        .col-md-4.col-sm-4.bor-left
+      .req-info-tab
+        .col-md-12
           .mt-boxy-color
           .medi-info
-            %h3 Emergency Case
-            %p I am text block. Edit this text from Appearance / Customize / Homepage header columns. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            %a.medi-info-btn{:href => "#"} READ MORE
-        .col-md-4.col-sm-4
-          .medi-info
-            %h3 Emergency Case
-            %p I am text block. Edit this text from Appearance / Customize / Homepage header columns. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            %a.medi-info-btn{:href => "#"} READ MORE
-        .col-md-4.col-sm-4.mt-boxy-3
-          .mt-boxy-color
-          .time-info
-            %h3 Opening Hours
-            %table{:border => "1", :style => "margin: 8px 0px 0px;"}
-              %tbody
-                %tr
-                  %td Monday - Friday
-                  %td 8.00 - 17.00
-                %tr
-                  %td Saturday
-                  %td 9.30 - 17.30
-                %tr
-                  %td Sunday
-                  %td 9.30 - 15.00
+            %h3 Request Info
+            %p Let us do the leg work in fining you a Nursing Home that best suits your needs. Send in the form below and someone will contact you shortly.
+            = form_tag(controller: :provider , action: :req_info) do
+              .form-group.col-xs-10
+                %input.form-control{name: 'name', placeholder: 'First and Last Name'}
+                %input.form-control{name: 'Location', placeholder: 'City, State or Zip'}
+                %input.form-control{name: 'Email', placeholder: 'Enter email'}
+                %input.form-control{name: 'Phone', placeholder: 'Enter Number'}
+                %button.form-control.btn.btn-default.search-submit{type: :submit} Submit
+
 / cta
 / about
 %section#about.section-padding

@@ -82,7 +82,6 @@ banner
 
 .navbar-brand
 {
-	font-family: 'Chewy', cursive;
 	font-size: 32px;
 }
 
@@ -135,7 +134,7 @@ banner
     background-color: rgba(12, 184, 182, 0) !important;
 }
 #banner{
-	background: asset-url('bg-banner.jpg') no-repeat fixed;
+	// background: asset-url('bg-banner.jpg') no-repeat fixed;
 	background-size: cover;
 	min-height: 650px;
 	position: relative;
@@ -199,12 +198,23 @@ services
 /***************************************
 cta-1
 ***************************************/
-.schedule-tab {
+.req-info-tab {
 	background-color: #0CB8B6;
 	float: left;
-}
-.medi-info{
-	border-right: 1px solid #fff;
+	width: 100%;
+	p{
+		text-align: center;
+	}
+	.form-group{
+		margin-left: 12%;
+	}
+	.form-control{
+		width: unset;
+		display: inline-block;
+	}
+	.btn{
+    vertical-align: unset;
+	}
 }
 .medi-info, .time-info{
 	padding: 20px;
@@ -214,6 +224,7 @@ cta-1
 	padding-bottom: 16px;
 	color: #fff;
 	font-weight: 600;
+	text-align: center;
 }
 .medi-info-btn, .medi-info-btn:hover, .medi-info-btn:focus {
     margin: 15px 0px 5px;
@@ -502,7 +513,6 @@ footer
     }
     .medi-info {
     border: 0px;
-    border-bottom: 1px solid #fff;
     }
     .service-info{
         margin-top: 20px;

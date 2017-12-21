@@ -35,3 +35,42 @@
 .red{
   color: red;
 }
+.request-form-container{
+	background-color:#ddd;
+	float: right;
+	margin-top: 10%;
+	width: 18em;
+	color: white;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 68px;
+
+	.req-header{
+		background-color: darkgrey;
+    padding-top: 16px;
+		.main{
+			margin: 0;
+			padding: 25px 15px 5px;
+			font-size: 32px;
+			line-height: 32px;
+			-webkit-font-smoothing: antialiased;
+			font-weight: bold;
+		}
+
+		.sub{
+			-webkit-font-smoothing: antialiased;
+	    font-size: 18px;
+	    margin: 0;
+	    padding: 0 15px 27px;
+	    line-height: 25px;
+		}
+	}
+	.form-control{
+		margin: 5% 10% !important;
+	}
+
+}
+
+.req-info-btn{
+	// margin-left: 8%;
+}

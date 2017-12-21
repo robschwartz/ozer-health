@@ -14,6 +14,11 @@ class ProviderController < ActionController::Base
     redirect_to location_path(location: params['search'])
   end
 
+  def req_info
+    p params
+    redirect_to location_path(location: params['search'])
+  end
+
   def location_results
     @location = params['location'].split.map(&:capitalize).join(' ')
     results = Provider.location_translator(@location, params['state'])

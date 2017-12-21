@@ -8,7 +8,8 @@
             %span.icon-bar
             %span.icon-bar
           %a.navbar-brand{:href => "/"}
-            =image_tag("ozer-logo.png", :style => "width: 140px; margin-top: -16px;", class: "img-responsive")
+            -# =image_tag("ozer-logo.png", :style => "width: 140px; margin-top: -16px;", class: "img-responsive")
+            .white Next Step Care
         #myNavbar.collapse.navbar-collapse.navbar-right
           %ul.nav.navbar-nav
             %li.active
@@ -38,33 +39,47 @@
 
 %section#about.section-padding
   .container
+    .request-form-container
+      .req-header
+        .main Need Help?
+        .sub Let our service team help pair you with the best home for your loved one. Don't worry, this service is free!
+      .req-form
+        = form_tag(controller: :provider , action: :req_info) do
+          .form-group.col-xs-10
+            %input.form-control.req-form-control{name: 'name', placeholder: 'Full Name'}
+            %input.form-control.req-form-control{name: 'location', placeholder: 'City, State or Zip'}
+            %input.form-control.req-form-control{name: 'email', placeholder: 'Email'}
+            %input.form-control.req-form-control{name: 'phone', placeholder: 'Phone Number'}
+            %button.form-control.btn.btn-default.search-submit{type: :submit} Submit
+
     .row
       .section-title
         %h2.head-title.lg-line
           Showing #{@homes.count} Nursing Homes in #{@location}
         %br/
         %hr.botm-line/
-        -@homes.each do |home|
-          .row.provider-container.col-xs-8
-            .col-xs-9
-              .provider-name=home.name
-              .provider-address=Provider.full_address(home)
-              .rating-container
-                Rating:
-                =home.overall_rating
-                of 5
-              .medi
-              Medicare:
-              - if home.medicare
-                .fa.fa-check-square.green
-              - else
-                .fa.fa-minus-square.red
+        .row
+          -@homes.each do |home|
+            .provider-container.col-xs-8
+              .col-xs-9
+                .provider-name=home.name
+                .provider-address=Provider.full_address(home)
+                .rating-container
+                  Rating:
+                  =home.overall_rating
+                  of 5
+                .medi
+                Medicare:
+                - if home.medicare
+                  .fa.fa-check-square.green
+                - else
+                  .fa.fa-minus-square.red
 
-              Medicaid:
-              - if home.medicaid
-                .fa.fa-check-square.green
-              - else
-                .fa.fa-minus-square.red
-              %br
-            .col-xs-3
-              More Details
+                Medicaid:
+                - if home.medicaid
+                  .fa.fa-check-square.green
+                - else
+                  .fa.fa-minus-square.red
+                %br
+              .col-md-3.col-xs-6.req-info-btn.btn.btn-default
+                Request Info

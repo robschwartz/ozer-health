@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   post '/provider/search', to: 'provider#search'
 
+  post '/provider/request-info', to: 'provider#req_info'
+
   get'/nursing-home-finder/nursing-homes/:location', to: 'provider#location_results', as: 'location'
 
   get'/nursing-home-finder/nursing-home/:id', to: 'provider#provider_page', as: 'provider_page'
