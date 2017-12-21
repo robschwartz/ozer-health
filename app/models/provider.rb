@@ -59,11 +59,9 @@ class Provider < ApplicationRecord
     all_cities = CS.cities(state, :us)
     home_cities = []
 
-    byebug
     all_cities.each do |city|
       city_results = Provider.where(city: city, state: state)
       if !city_results.empty?
-        puts "adding #{city}: #{city_results.count}"
         home_cities << city
       end
     end
