@@ -15,3 +15,15 @@
     %body#myPage{"data-offset" => "60", "data-spy" => "scroll", "data-target" => ".navbar"}
       = yield
       = render :partial => "shared/footer"
+      = render :partial => "shared/modal"
+      :javascript
+        $('#req-modal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var name = button.data('name') // Extract info from data-* attributes
+          var provNumber = button.data('provnumber') // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+          var modal = $(this)
+          modal.find('.modal-title').text('Request Info for ' + name)
+          modal.find('.modal-body input[name="prov-number"]').val(provNumber)
+        })

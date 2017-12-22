@@ -1,0 +1,18 @@
+.modal.fade.modal-fade#req-modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{type:'button', data:{dismiss:'modal'}}
+          %span{aria:{hidden:'true'}}
+            %i.fa.fa-close
+          %span.sr-only Close
+        %h4.modal-title
+        .modal-body
+          = form_tag(controller: :provider , action: :req_info) do
+            .form-group.col-xs-12
+              %input.form-control{name: 'prov-number', type:'hidden'}
+              %input.form-control{name: 'name', placeholder: 'Full Name', required: true}
+              %input.form-control{name: 'location', placeholder: 'City, State or Zip', required: true}
+              %input.form-control{name: 'email', placeholder: 'Email', required: true}
+              %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
+              %button.form-control.btn.btn-default.search-submit{type: :submit} Submit

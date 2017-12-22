@@ -5,12 +5,19 @@ Rails.application.routes.draw do
 
   get '/nursing-home-finder', to: 'provider#home', as: 'home'
 
-  post '/provider/search', to: 'provider#search'
-
-  post '/provider/request-info', to: 'provider#req_info'
-
   get'/nursing-home-finder/nursing-homes/:location', to: 'provider#location_results', as: 'location'
 
   get'/nursing-home-finder/nursing-home/:id', to: 'provider#provider_page', as: 'provider_page'
 
+  # form requests
+  post '/provider/search', to: 'provider#search'
+
+  post '/provider/request-info', to: 'provider#req_info'
+
+  # info pages
+
+  get '/terms', to: 'page#terms'
+  get '/privacy', to: 'page#privacy'
+  get '/about', to: 'page#about'
+  get '/thank-you', to: 'page#thanks'
 end

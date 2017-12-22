@@ -15,8 +15,9 @@ class ProviderController < ActionController::Base
   end
 
   def req_info
-    p params
-    redirect_to location_path(location: params['search'])
+    # Send data from the form to our data-bucket
+    ForwardData.send_to_bucket(params)
+    redirect_to thank_you_path
   end
 
   def location_results

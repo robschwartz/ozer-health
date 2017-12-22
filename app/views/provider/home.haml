@@ -17,9 +17,7 @@
               %li.active
                 %a{:href => "/"} Home
               %li
-                %a{:href => "#service"} Services
-              %li
-                %a{:href => "#about"} About
+                %a{:href => "/about"} About
               %li
                 %a{:href => "#contact"} Contact
               -# %li
@@ -46,7 +44,7 @@
               .row
                 = form_tag(controller: :provider , action: :search) do
                   .form-group.col-xs-4.col-xs-offset-4
-                    %input.form-control{name: 'search', placeholder: 'Enter City, State, or Zip...'}
+                    %input.form-control{name: 'search', placeholder: 'Enter City, State, or Zip...', required: true}
                     %button.btn.btn-default.search-submit{type: :submit} Submit
           .overlay-detail.text-center
             %a{:href => "#service"}
@@ -98,12 +96,14 @@
           .medi-info
             %h3 Request Info
             %p Let us do the leg work in fining you a Nursing Home that best suits your needs. Send in the form below and someone will contact you shortly.
+            %small
+              %strong.center*TIP: Enter the location where you are looking for a home.
             = form_tag(controller: :provider , action: :req_info) do
               .form-group.col-xs-10
-                %input.form-control{name: 'name', placeholder: 'First and Last Name'}
-                %input.form-control{name: 'Location', placeholder: 'City, State or Zip'}
-                %input.form-control{name: 'Email', placeholder: 'Enter email'}
-                %input.form-control{name: 'Phone', placeholder: 'Enter Number'}
+                %input.form-control{name: 'name', placeholder: 'Full Name', required: true}
+                %input.form-control{name: 'location', placeholder: 'City, State or Zip', required: true}
+                %input.form-control{name: 'email', placeholder: 'Email', required: true}
+                %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
                 %button.form-control.btn.btn-default.search-submit{type: :submit} Submit
 
 / cta

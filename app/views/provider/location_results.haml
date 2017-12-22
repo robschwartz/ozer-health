@@ -15,11 +15,9 @@
             %li.active
               %a{:href => "/"} Home
             %li
-              %a{:href => "#service"} Services
+              %a{:href => "/about"} About
             %li
-              %a{:href => "#about"} About
-            %li
-              %a{:href => "#contact"} Contact
+              %a{:href => "/contact"} Contact
 - if @loc_type == "State"
   %section#about.section-padding
     .container
@@ -46,11 +44,13 @@
       .req-form
         = form_tag(controller: :provider , action: :req_info) do
           .form-group.col-xs-10
-            %input.form-control.req-form-control{name: 'name', placeholder: 'Full Name'}
-            %input.form-control.req-form-control{name: 'location', placeholder: 'City, State or Zip'}
-            %input.form-control.req-form-control{name: 'email', placeholder: 'Email'}
-            %input.form-control.req-form-control{name: 'phone', placeholder: 'Phone Number'}
+            %input.form-control{name: 'name', placeholder: 'Full Name', required: true}
+            %input.form-control{name: 'location', placeholder: 'City, State or Zip', required: true}
+            %input.form-control{name: 'email', placeholder: 'Email', required: true}
+            %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
             %button.form-control.btn.btn-default.search-submit{type: :submit} Submit
+      .clearfix
+      .req-legal By submitting your information, you agree to the terms and conditions of our Privacy Policy, Terms of Use, and Agreement to be Contacted by Telephone. Your consent is not required to use our service.
 
     .row
       .section-title
@@ -81,5 +81,5 @@
                 - else
                   .fa.fa-minus-square.red
                 %br
-              .col-md-3.col-xs-6.req-info-btn.btn.btn-default
+              .col-md-3.col-xs-6.req-info-btn.btn.btn-default{"type"=> 'button', "data-toggle"=> "modal", "data-target"=> "#req-modal", "data-name"=> "#{home.name}", "data-provNumber"=> "#{home.provider_number}"}
                 Request Info
