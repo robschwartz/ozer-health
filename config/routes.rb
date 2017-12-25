@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   post '/provider/request-info', to: 'provider#req_info'
 
+  post '/send-contact-form', to: 'provider#send_contact_form'
+
   # info pages
 
   get '/terms', to: 'page#terms'

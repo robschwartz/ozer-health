@@ -20,6 +20,10 @@ class ProviderController < ActionController::Base
     redirect_to thank_you_path
   end
 
+  def send_contact_form
+    SendgridMailer.send_mail(params)
+  end
+
   def location_results
     @location = params['location'].split.map(&:capitalize).join(' ')
     results = Provider.location_translator(@location, params['state'])

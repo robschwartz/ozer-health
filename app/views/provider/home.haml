@@ -19,7 +19,7 @@
               %li
                 %a{:href => "/about"} About
               %li
-                %a{:href => "#contact"} Contact
+                %a{:href => "/#contact"} Contact
               -# %li
               -# = form_tag(controller: :provider , action: :search) do
               -#   .form-group
@@ -56,35 +56,38 @@
   .container
     .row
       .col-md-4.col-sm-4
-        %h2.ser-title Our Service
+        %h2.ser-title Nursing Homes
         %hr.botm-line/
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris cillum.
+        %p Nursing homes, in varying sizes and styles, may be the best choice for people with illnesses or physical or mental limitations that require monitoring and care from medical professionals. To find the best fit, take the time and effort to compare a few facilities as to quality of care as well as personal preferences such as location, size, and resident characteristics.
+
       .col-md-4.col-sm-4
         .service-info
           .icon
             %i.fa.fa-stethoscope
           .icon-info
             %h4 24 Hour Support
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            %p Residents have 24-hour access to trained staff, so they can be continuously monitored for medical needs and can receive help with the activities of daily living.
         .service-info
           .icon
-            %i.fa.fa-ambulance
+            %i.fa.fa-heartbeat
           .icon-info
-            %h4 Emergency Services
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            %h4 Monitored Care
+            %p Residents will be monitored closely throughout their stay at the Nursing Home facility. They typically have a set of dedicated professionals to keep them on scheduled medication if needed and help them get the movement they need.
+
       .col-md-4.col-sm-4
         .service-info
           .icon
             %i.fa.fa-user-md
           .icon-info
-            %h4 Medical Counseling
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            %h4 Service Options
+            %p There are two levels of nursing home care. In a skilled nursing facility (SNF), residents are under the 24-hour care of licensed or registered nursing staff, while in an intermediate care facility residents are cared for by certified nursing assistants.
         .service-info
           .icon
             %i.fa.fa-medkit
           .icon-info
-            %h4 Premium Healthcare
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            %h4 Healthcare Cost
+            %p Nursing Home facilities assess fees on a daily basis. If necessary, additional services and supplies may be added to a patient’s bill. Prices vary based on location and level of assistance the patient will need.
+
 / / service
 / cta
 %section#cta-1.section-padding
@@ -206,28 +209,18 @@
         %h2.ser-title Contact us
         %hr.botm-line/
       .col-md-4.col-sm-4
-        %h3 Contact Info
+        %h3 Contact Us
         .space
         %p
-          %i.fa.fa-map-marker.fa-fw.pull-left.fa-2x>
-          321 Awesome Street
-          %br/
-          New York, NY 17022
-        .space
-        %p
-          %i.fa.fa-envelope-o.fa-fw.pull-left.fa-2x>
-          info@companyname.com
-        .space
-        %p
-          %i.fa.fa-phone.fa-fw.pull-left.fa-2x>
-          +1 800 123 1234
+          Want to add or claim a Nursing Home on our list? Have a general question? Please fell free to contact us through the form and someone will reach out to you within 24-48 hours.
+
       .col-md-8.col-sm-8.marb20
         .contact-info
-          %h3.cnt-ttl Having Any Query! Or Book an appointment
+          %h3.cnt-ttl Fill out the form below with any questions!
           .space
           #sendmessage Your message has been sent. Thank you!
           #errormessage
-          %form.contactForm{:action => "", :method => "post", :role => "form"}
+          %form.contactForm{ controller: :provider, :action => "send_contact_form", :method => "post", :role => "form"}
             .form-group
               %input#name.form-control.br-radius-zero{"data-msg" => "Please enter at least 4 chars", "data-rule" => "minlen:4", :name => "name", :placeholder => "Your Name", :type => "text"}/
               .validation
