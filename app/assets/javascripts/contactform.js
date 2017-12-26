@@ -83,17 +83,9 @@ jQuery(document).ready(function($) {
                 url: "/send-contact-form",
                 data: str,
                 success: function(msg){
-                   // alert(msg);
-                    if(msg == 'OK') {
-                        $("#sendmessage").addClass("show");
-                        $("#errormessage").removeClass("show");
-                    }
-                    else {
-                        $("#sendmessage").removeClass("show");
-                        $("#errormessage").addClass("show");
-                        $('#errormessage').html(msg);
-                    }
-
+                 // alert(msg);
+                  $("#sendmessage").addClass("show");
+                  $("#errormessage").removeClass("show");
                 }
             });
         return false;

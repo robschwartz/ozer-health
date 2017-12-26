@@ -1,0 +1,7 @@
+%urlset{:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9"}
+  - for provider in @providers
+    %url
+      %loc #{provider_page_url(provider)}
+      %lastmod=provider.updated_at.strftime('%Y-%m-%d')
+      %changefreq monthly
+      %priority 0.5
