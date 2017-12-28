@@ -21,7 +21,7 @@ class ProviderController < ActionController::Base
   end
 
   def send_contact_form
-    SendgridMailer.send_mail(params)
+    ContactUsMailer.contact(params).deliver_now
   end
 
   def location_results
