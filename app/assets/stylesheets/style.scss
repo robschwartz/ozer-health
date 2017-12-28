@@ -499,6 +499,10 @@ footer
 
 }
 @media (min-width: 220px) and (max-width: 551px){
+		.navbar-brand
+		{
+			font-size: 24px;
+		}
     .testi-info{
         margin-bottom: 20px;
     }
@@ -532,6 +536,21 @@ footer
     .banner-text h1{
         font-size: 24px;
     }
+
+		.city-list li{
+			width: 43%;
+			padding-left: 32px;
+			font-size: 1em;
+		}
+
+		.request-form-container {
+			position: static;
+		}
+
+		.req-info-btn{
+			margin-top: 10px;
+			margin-left: 10px;
+		}
 }
 
 .center{

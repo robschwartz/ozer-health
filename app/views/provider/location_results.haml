@@ -62,7 +62,7 @@
         %hr.botm-line/
         .row
           -@homes.each do |home|
-            .provider-container.col-xs-8
+            .provider-container.col-xs-12.col-md-8
               .col-xs-9
                 .provider-name=home.name
                 .provider-address=Provider.full_address(home)
