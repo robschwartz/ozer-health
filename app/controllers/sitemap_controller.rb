@@ -1,9 +1,13 @@
 class SitemapController < ApplicationController
   layout nil
+
   def index
-    headers['Content-Type'] = 'application/xml'
+    @pages = ['', 'about.html', 'thank-you.html']
+
+    @providers = Provider.all
+
     respond_to do |format|
-      format.xml {@providers = Provider.all}
+      format.xml
     end
   end
 end

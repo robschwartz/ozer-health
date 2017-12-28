@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   get '/about', to: 'page#about'
   get '/thank-you', to: 'page#thanks'
 
-  get 'sitemap.xml', :to => 'sitemap#index', :defaults => {:format => 'xml'}
+  get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
 end
