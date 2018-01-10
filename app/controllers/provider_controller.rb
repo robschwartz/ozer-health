@@ -7,6 +7,7 @@ class ProviderController < ActionController::Base
 
   def home
     @states = CS.states(:us)
+    set_title_tag
   end
 
   def search
@@ -46,13 +47,26 @@ class ProviderController < ActionController::Base
       flash[:error] = "Sorry! Your search returned 0 results. Please enter a new search."
       redirect_to home_path
     end
-
+    set_title_tag
   end
 
   def show
     @home = Provider.find_by_name(params['name'])
     @state = CS.states(:us)[@home.state.to_sym]
+    set_title_tag
+  end
 
+
+  private
+
+  def set_title_tag
+    @title = if !@location.blank?
+              "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near #{@location}"
+            elsif !@state.blank?
+               "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near #{@state}"
+             else
+               "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near you"
+             end
   end
 
 
