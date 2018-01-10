@@ -46,6 +46,10 @@
 	top: 68px;
 	z-index: 999;
 
+	label{
+		margin: 0 10% !important;
+	}
+
 	.req-header{
 		background-color: darkgrey;
     padding-top: 16px;
@@ -77,5 +81,15 @@
 }
 
 .req-info-btn{
+	margin-top: 2%;
+	a{
+		text-decoration: none;
+		color: black;
+	}
 	// margin-left: 8%;
+}
+
+.filter-label{
+	font-size: 20px;
+	color: black;
 }

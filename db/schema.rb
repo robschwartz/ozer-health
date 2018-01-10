@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213210331) do
+ActiveRecord::Schema.define(version: 20180109191327) do
 
   create_table "providers", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20171213210331) do
     t.datetime "updated_at", null: false
     t.string "provider_number"
     t.boolean "medicaid"
+    t.string "home_type"
+    t.text "description"
   end
 
 end

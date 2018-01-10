@@ -30,7 +30,7 @@ class Provider < ApplicationRecord
 
   private
 
-  def self.location_translator(location, loc_state=nil)
+  def self.location_translator(location, loc_state=nil, home_type=nil)
     results = {}
     # check if the search location is a state
     state = CS.states(:us).key(location)
@@ -48,7 +48,7 @@ class Provider < ApplicationRecord
       if provider_list.empty?
         # if not a city, check if it's a zip
         provider_list = Provider.where(zip: location.to_i)
-        results= {homes: provider_list, type: "Zip"}
+        results= {homes: provider_list, loc_type: "Zip"}
       end
       results
     end

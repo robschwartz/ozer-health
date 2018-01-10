@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   get '/', to: 'provider#root'
 
-  get '/nursing-home-finder', to: 'provider#home', as: 'home'
+  get '/adult-home-finder', to: 'provider#home', as: 'home'
 
-  get'/nursing-home-finder/nursing-homes/:location', to: 'provider#location_results', as: 'location'
+  get'/adult-home-finder/adult-homes/:location', to: 'provider#location_results', as: 'location'
 
-  get'/nursing-home-finder/nursing-home/:id', to: 'provider#provider_page', as: 'provider_page'
+  get'/adult-home-finder/adult-home/:name', to: 'provider#show', as: 'provider_page'
 
   # form requests
   post '/provider/search', to: 'provider#search'

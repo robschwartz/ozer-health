@@ -517,7 +517,7 @@ footer
         margin-bottom: 30px;
     }
     .medi-info {
-    border: 0px;
+    	border: 0px;
     }
     .service-info{
         margin-top: 20px;
@@ -561,4 +561,9 @@ footer
 	.form-control{
 		margin-bottom: 16px;
 	}
+}
+
+.form-check-label{
+	margin: 1% 2% !important;
+	font-size: 18px !important;
 }

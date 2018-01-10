@@ -33,9 +33,9 @@
           .banner-logo.text-center
             %h1.white Adult Home Finder
           .banner-text.text-center
-            %h1.white Helping you find the perfect nursing home
+            %h1.white Find the perfect home for your loved one
             %p
-              Search by City, State, or Zip to find a nursing home closest to you.
+              Search by City, State, or Zip to find a home closest to you.
               %br/
               - flash.each do |key, value|
                 %div{:class => "alert alert-#{key}"}
@@ -46,6 +46,16 @@
                 = form_tag(controller: :provider , action: :search) do
                   .form-group.col-xs-4.col-xs-offset-4
                     %input.form-control{name: 'search', placeholder: 'Enter City, State, or Zip...', required: true}
+                    .form-check.form-check-inline
+                      %label.form-check-label
+                        Nursing Home
+                        %input.form-check-input{type:'radio',name: 'home_type', value:"Nursing Home", required: true}
+                      %label.form-check-label
+                        Assisted Living
+                        %input.form-check-input{type:'radio',name: 'home_type', value:"Assisted Living Facility", required: true}
+                      %label.form-check-label
+                        Both
+                        %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
                     %button.btn.btn-default.search-submit{type: :submit} Submit
           .overlay-detail.text-center
             %a{:href => "#service"}
@@ -57,9 +67,9 @@
   .container
     .row
       .col-md-4.col-sm-4
-        %h2.ser-title Nursing Homes
+        %h2.ser-title Elder Care Homes
         %hr.botm-line/
-        %p Nursing homes, in varying sizes and styles, may be the best choice for people with illnesses or physical or mental limitations that require monitoring and care from medical professionals. To find the best fit, take the time and effort to compare a few facilities as to quality of care as well as personal preferences such as location, size, and resident characteristics.
+        %p Homes, in varying sizes and styles, may be the best choice for people with illnesses or physical or mental limitations that require monitoring and care from medical professionals. To find the best fit, take the time and effort to compare a few facilities as to quality of care as well as personal preferences such as location, size, and resident characteristics.
 
       .col-md-4.col-sm-4
         .service-info
@@ -81,13 +91,13 @@
             %i.fa.fa-user-md
           .icon-info
             %h4 Service Options
-            %p There are two levels of nursing home care. In a skilled nursing facility (SNF), residents are under the 24-hour care of licensed or registered nursing staff, while in an intermediate care facility residents are cared for by certified nursing assistants.
+            %p There are two levels of adult home care. In a skilled nursing facility (SNF), residents are under the 24-hour care of licensed or registered nursing staff, while in an intermediate care facility residents are cared for by certified nursing assistants.
         .service-info
           .icon
             %i.fa.fa-medkit
           .icon-info
             %h4 Healthcare Cost
-            %p Nursing Home facilities assess fees on a daily basis. If necessary, additional services and supplies may be added to a patient’s bill. Prices vary based on location and level of assistance the patient will need.
+            %p Adult Home facilities assess fees on a daily basis. If necessary, additional services and supplies may be added to a patient’s bill. Prices vary based on location and level of assistance the patient will need.
 
 / / service
 / cta
@@ -109,7 +119,16 @@
                 %input.form-control{name: 'email', placeholder: 'Email', required: true}
                 %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
                 %input.form-control{name: 'web_referral', type:'hidden', value: "Adult Home Directory"}
-                %input.form-control{name: 'home_type', type:'hidden', value: "Nursing Home"}
+                .form-check.form-check-inline
+                  %label.form-check-label
+                    Nursing Home
+                    %input.form-check-input{type:'radio',name: 'home_type', value:"Nursing Home", required: true}
+                  %label.form-check-label
+                    Assisted Living
+                    %input.form-check-input{type:'radio',name: 'home_type', value:"Assisted Living Facility", required: true}
+                  %label.form-check-label
+                    Both
+                    %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
                 %button.form-control.btn.btn-default.search-submit{type: :submit} Submit
 
 / cta
@@ -131,7 +150,7 @@
               %i.fa.fa-angle-right{"aria-hidden" => "true"}
             .more-features-box-text-description
               %h3
-                %a.art_link{:href => "https://www.aarp.org/home-family/caregiving/info-05-2012/caregiving-resource-center-asking-right-questions.html", :target => "_blank"}
+                %a.art_link{:href => "https://www.aarp.org/home-family/caregiving/info-05-2012/caregiving-resource-center-asking-right-questions.html", :target => "_blank", :title=>"Assisted Living Facility Nursing Home"}
                   Comparing Nursing Homes
 
               %p Use this checklist to ask the right questions when choosing a long-term care facility.
@@ -140,15 +159,15 @@
               %i.fa.fa-angle-right{"aria-hidden" => "true"}
             .more-features-box-text-description
               %h3
-                %a.art_link{:href => "https://www.aarp.org/home-family/caregiving/info-05-2012/caregiving-resource-center-nursing-home-system.html", :target => "_blank"}
-                  Living in a Nursing Home
+                %a.art_link{:href => "https://assets.aarp.org/external_sites/caregiving/options/assisted_living.html", :target=>"_blank", :title=>"Assisted Living Facility Nursing Home"}
+                  Living in an Adult Home
               %p Understanding how these facilities work can mean the difference in the quality of your loved one's care.
           .more-features-box-text
             .more-features-box-text-icon
               %i.fa.fa-angle-right{"aria-hidden" => "true"}
             .more-features-box-text-description
               %h3
-                %a.art_link{:href => "https://www.aarp.org/caregiving/basics/info-2017/parents-nursing-home-choices-bjj.html?intcmp=AE-CAR-BAS-EOA3", :target => "_blank"}
+                %a.art_link{:href => "https://www.aarp.org/caregiving/basics/info-2017/parents-nursing-home-choices-bjj.html?intcmp=AE-CAR-BAS-EOA3", :target => "_blank", :title=>"Assisted Living Facility Nursing Home"}
                   When It's Time for a Nursing Home
               %p Caregivers often feel an emotional mix of relief and guilt, reassurance and anxiety.
           .more-features-box-text
@@ -156,7 +175,7 @@
               %i.fa.fa-angle-right{"aria-hidden" => "true"}
             .more-features-box-text-description
               %h3
-                %a.art_link{:href => "https://www.aarp.org/caregiving/basics/info-2017/senior-housing-options-tool.html", :target => "_blank"}
+                %a.art_link{:href => "https://www.aarp.org/caregiving/basics/info-2017/senior-housing-options-tool.html", :target => "_blank", :title=>"Assisted Living Facility Nursing Home"}
                   Senior Housing Options
               %p Use this tool to weigh the options and make the best possible choice.
           .more-features-box-text
@@ -164,22 +183,22 @@
               %i.fa.fa-angle-right{"aria-hidden" => "true"}
             .more-features-box-text-description
               %h3
-                %a.art_link{:href => "https://health.usnews.com/wellness/articles/2016-11-16/how-to-pay-for-nursing-home-costs", :target => "_blank"}
-                  How to Pay for Nursing Home Costs
+                %a.art_link{:href => "https://health.usnews.com/wellness/articles/2016-11-16/how-to-pay-for-nursing-home-costs", :target => "_blank", :title=>"Assisted Living Facility Nursing Home"}
+                  How to Pay for Adult Home Costs
               %p Medicare, Medicaid and other resources can help minimize the cost of long-term care.
 / / about
 / State List
 %section.section-padding.state-section
   .container
     .row
-      %h2 Nursing Homes By State
+      %h2 Adult Homes By State
       %hr.bottom-line
 
     .row
       %ul.state-list.list-inline
         -@states.each do |key, val|
           %li
-            %a{:href => "/nursing-home-finder/nursing-homes/#{val}"}
+            %a{:href => "/adult-home-finder/adult-homes/#{val}", :title=>"Assisted Living Facility Nursing Home in #{val}"}
               =val
   %hr
 

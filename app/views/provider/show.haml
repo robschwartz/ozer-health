@@ -1,0 +1,149 @@
+.bg-color-results
+  %nav.navbar.navbar-default.navbar-fixed-top
+    .container
+      .col-md-12
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "/"}
+            -# =image_tag("ozer-logo.png", :style => "width: 140px; margin-top: -16px;", class: "img-responsive")
+            .white Adult Home Finder
+        #myNavbar.collapse.navbar-collapse.navbar-right
+          %ul.nav.navbar-nav
+            %li.active
+              %a{:href => "/"} Home
+            %li
+              %a{:href => "/about"} About
+            %li
+              %a{:href => "/contact"} Contact
+
+%section#about.section-padding
+  .container
+    .request-form-container
+      .req-header
+        .main Need Help?
+        .sub Let our service team help pair you with the best home for your loved one. Don't worry, this service is free!
+      .req-form
+        = form_tag(controller: :provider , action: :req_info) do
+          .form-group.col-xs-10
+            %input.form-control{name: 'name', placeholder: 'Full Name', required: true}
+            %input.form-control{name: 'location', placeholder: 'City, State or Zip', required: true}
+            %input.form-control{name: 'email', placeholder: 'Email', required: true}
+            %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
+            %input.form-control{name: 'web_referral', type:'hidden', value: "Adult Home Directory"}
+            .form-check
+              %label.form-check-label
+                Nursing Home
+                %input.form-check-input{type:'radio',name: 'home_type', value:"Nursing Home", required: true}
+            .form-check
+              %label.form-check-label
+                Assisted Living
+                %input.form-check-input{type:'radio',name: 'home_type', value:"Assisted Living Facility", required: true}
+            .form-check
+              %label.form-check-label
+                Both
+                %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
+            %button.form-control.btn.btn-default.search-submit{type: :submit} Submit
+      .clearfix
+      .req-legal By submitting your information, you agree to the terms and conditions of our Privacy Policy, Terms of Use, and Agreement to be Contacted by Telephone. Your consent is not required to use our service.
+    .row
+      .section-title
+        %h2.head-title.lg-line
+          #{@home.name}
+
+        %br/
+        %hr.botm-line/
+        .row
+          .provider-container.col-xs-12.col-md-8
+            .col-xs-9
+              .provider-name=@home.name
+              .provider-address=Provider.full_address(@home)
+              .rating-container
+                Rating:
+                =@home.overall_rating
+                of 5
+              .medi
+              Medicare:
+              - if @home.medicare
+                .fa.fa-check-square.green
+              - else
+                .fa.fa-minus-square.red
+
+              Medicaid:
+              - if @home.medicaid
+                .fa.fa-check-square.green
+              - else
+                .fa.fa-minus-square.red
+              %br
+
+            .col-md-3.col-xs-6.req-info-btn.btn.btn-default{"type"=> 'button', "data-toggle"=> "modal", "data-target"=> "#req-modal", "data-name"=> "#{@home.name}", "data-provNumber"=> "#{@home.provider_number}"}
+              Request Info
+
+          %h2.about-header About #{@home.name}
+          -if @home.home_type = "Nursing Home"
+            %p.about-text #{@home.name} provides residents assistance with at the activities of everyday daily living.
+          -else
+            %p.about-text #{@home.name} provides residents assistance with at the activities of everyday daily living.
+
+          =link_to "Find Other Locations in #{@home.city}, #{@home.state}", location_path(location: @home.city, state: @state)
+          %br
+          =link_to "Find Other Locations in #{@home.state}", location_path(location: @state)
+
+        .row
+
+
+%section#testimonial.section-padding
+  .container
+    .row
+      .col-md-3.col-sm-4.col-xs-12
+        .section-title
+          %h2.head-title.lg-line
+            Infomrative Articles
+            %br/
+          %hr.botm-line/
+          %p.sec-para Do your reserach before deciding which home is best for you or your loved one. These are some helpful articles that can help you make the right choice.
+      .col-md-9.col-sm-8.col-xs-12
+        .col-sm-9.more-features-box{:style => "visibility: visible;"}
+          .more-features-box-text
+            .more-features-box-text-icon
+              %i.fa.fa-angle-right{"aria-hidden" => "true"}
+            .more-features-box-text-description
+              %h3
+                %a.art_link{:href => "https://www.aarp.org/home-family/caregiving/info-05-2012/caregiving-resource-center-asking-right-questions.html", :target => "_blank", :title=>"Assisted Living Facility Nursing Home"}
+                  Comparing Nursing Homes
+
+              %p Use this checklist to ask the right questions when choosing a long-term care facility.
+          .more-features-box-text
+            .more-features-box-text-icon
+              %i.fa.fa-angle-right{"aria-hidden" => "true"}
+            .more-features-box-text-description
+              %h3
+                %a.art_link{:href => "https://assets.aarp.org/external_sites/caregiving/options/assisted_living.html", :title=>"Assisted Living Facility Nursing Home", :target => "_blank"}
+                  Living in an Adult Home
+              %p Understanding how these facilities work can mean the difference in the quality of your loved one's care.
+          .more-features-box-text
+            .more-features-box-text-icon
+              %i.fa.fa-angle-right{"aria-hidden" => "true"}
+            .more-features-box-text-description
+              %h3
+                %a.art_link{:href => "https://www.aarp.org/caregiving/basics/info-2017/parents-nursing-home-choices-bjj.html?intcmp=AE-CAR-BAS-EOA3", :target => "_blank", :title=>"Assisted Living Facility Nursing Home"}
+                  When It's Time for a Nursing Home
+              %p Caregivers often feel an emotional mix of relief and guilt, reassurance and anxiety.
+          .more-features-box-text
+            .more-features-box-text-icon
+              %i.fa.fa-angle-right{"aria-hidden" => "true"}
+            .more-features-box-text-description
+              %h3
+                %a.art_link{:href => "https://www.aarp.org/caregiving/basics/info-2017/senior-housing-options-tool.html", :target => "_blank", :title=>"Assisted Living Facility Nursing Home"}
+                  Senior Housing Options
+              %p Use this tool to weigh the options and make the best possible choice.
+          .more-features-box-text
+            .more-features-box-text-icon
+              %i.fa.fa-angle-right{"aria-hidden" => "true"}
+            .more-features-box-text-description
+              %h3
+                %a.art_link{:href => "https://health.usnews.com/wellness/articles/2016-11-16/how-to-pay-for-nursing-home-costs", :target => "_blank", :title=>"Assisted Living Facility Nursing Home" }
+                  How to Pay for Adult Home Costs
+              %p Medicare, Medicaid and other resources can help minimize the cost of long-term care.
