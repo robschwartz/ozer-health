@@ -52,7 +52,7 @@
         %ul.city-list.list-inline
           -@cities.each do |city|
             %li
-              %a{:href => "/adult-home-finder/adult-homes/#{city}?state=#{@location}" :title=>"Assisted Living Facility Nursing Home"}
+              %a{:href => "/adult-home-finder/adult-homes/#{city}?state=#{@location}", :title=>"Assisted Living Facility Nursing Home"}
                 =city
 
 
@@ -120,5 +120,5 @@
                 %br
               .col-md-3.col-xs-6.req-info-btn.btn.btn-default{"type"=> 'button', "data-toggle"=> "modal", "data-target"=> "#req-modal", "data-name"=> "#{home.name}", "data-provNumber"=> "#{home.provider_number}"}
                 Request Info
-              %a.col-md-3.col-xs-6.req-info-btn.btn.btn-default{:href => "/adult-home-finder/adult-home/#{home.name}" :title=>"#{home.type}"}
+              %a.col-md-3.col-xs-6.req-info-btn.btn.btn-default{:href => "/adult-home-finder/adult-home/#{home.name}", :title=>"#{home.type}"}
                 Home Details
