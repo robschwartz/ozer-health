@@ -246,3 +246,17 @@
       url: "/provider/search/"+searchInput
     })
   })
+
+%script{:type=>"application/ld+json"}
+  :plain
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.adulthomefinder.com/",
+      "logo": "http://www.adulthomefinder.com/favicon.ico",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://www.adulthomefinder.com/provider/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
