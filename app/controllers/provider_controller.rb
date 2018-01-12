@@ -26,9 +26,10 @@ class ProviderController < ActionController::Base
   end
 
   def location_results
-    @home_type = params[:home_type]
-
+    @home_type = params['home_type']
+    @state = params['state']
     @location = params['location'].split.map(&:capitalize).join(' ')
+
     results = Provider.location_translator(@location, params['state'], params['home_type'])
 
     if !@home_type.blank?

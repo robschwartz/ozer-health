@@ -18,6 +18,24 @@
               %a{:href => "/about"} About
             %li
               %a{:href => "/contact"} Contact
+%section#filter
+  .container
+    .row
+      %ol{:id => "selector"}
+        %li
+          %a{:href => "/"}
+            Home >
+          %li
+            %a{:href => "/adult-home-finder/adult-homes/#{@state}"}
+              #{@state} >
+          %li
+            %a{:href => "/adult-home-finder/adult-homes/#{@home.city}?state=#{@state}"}
+              #{@home.city} >
+          %li
+            %a{:href => "/adult-home-finder/adult-home/#{@home.name}"}
+              #{@home.name}
+
+
 
 %section#about.section-padding
   .container

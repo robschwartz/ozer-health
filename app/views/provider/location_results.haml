@@ -36,6 +36,22 @@
               Both
               %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
             %button.btn.btn-default.search-submit{type: :submit} Submit
+    .row
+      %ol{:id => "selector"}
+        %li
+          %a{:href => "/"}
+            Home >
+        - if @loc_type == "State"
+          %li
+            %a{:href => "/adult-home-finder/adult-homes/#{@state}"}
+              #{@location}
+        - else
+          %li
+            %a{:href => "/adult-home-finder/adult-homes/#{@state}"}
+              #{@state} >
+          %li
+            %a{:href => "/adult-home-finder/adult-homes/#{@location}?state=#{@state}"}
+              #{@location}
 - if @loc_type == "State"
   %section#about.section-padding
     .container
