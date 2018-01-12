@@ -41,16 +41,16 @@
         %li
           %a{:href => "/"}
             Home >
-        - if @loc_type == "State"
-          %li
-            %a{:href => "/adult-home-finder/adult-homes/#{@state}"}
-              #{@location}
-        - else
+        - if @loc_type == "City" && !@state.nil?
           %li
             %a{:href => "/adult-home-finder/adult-homes/#{@state}"}
               #{@state} >
           %li
             %a{:href => "/adult-home-finder/adult-homes/#{@location}?state=#{@state}"}
+              #{@location}
+        - else
+          %li
+            %a{:href => "/adult-home-finder/adult-homes/#{@state}"}
               #{@location}
 - if @loc_type == "State"
   %section#about.section-padding
