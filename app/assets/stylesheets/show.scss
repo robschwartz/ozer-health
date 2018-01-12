@@ -1,15 +1,18 @@
 .about-header{
-  padding-top: 17%
+  padding-top: 8%;
+  line-height: 34px;
 }
 .about-text {
   color: black;
   padding-top: 2%;
-
+  font-size: 18px;
 }
 
 .about-list{
   color: black;
   li{
     list-style: initial;
+    font-size: 18px;
+    padding-top: 5px;
   }
 }

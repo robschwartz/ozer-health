@@ -98,36 +98,36 @@
 
             .col-md-3.col-xs-6.req-info-btn.btn.btn-default{"type"=> 'button', "data-toggle"=> "modal", "data-target"=> "#req-modal", "data-name"=> "#{@home.name}", "data-provNumber"=> "#{@home.provider_number}"}
               Request Info
+          .about-container.col-md-8.col-xs-12
+            %h2.about-header About #{@home.name}
+            -if @home.home_type = "Nursing Home"
+              %p.about-text
+                #{@home.name}, located in #{@home.city}, provides residents assistance with care that can't be offered for at home. They have nursing aides and skilled nurses on hand 24 hours a day. The staff provides medical care, as well as physical, speech and occupational therapy. #{@home.name} offers:
+                %ul.about-list
+                  %li The right to be treated with dignity and respect.
+                  %li The right to be informed in writing about services and fees before you enter the nursing home.
+                  %li The right to manage your own money or to choose someone else you trust to do this for you.
+                  %li The right to privacy, and to keep and use your personal belongings and property as long as it doesn't interfere with the rights, health, or safety of others.
+                  %li The right to be informed about your medical condition, medications, and to see your own doctor. You also have the right to refuse medications and treatments.
+                  %li The right to have a choice over your schedule (for example, when you get up and go to sleep), your activities and other preferences that are important to you.
+                  %li The right to an environment more like a home that maximizes your comfort and provides you with assistance to be as independent as possible.
+            -else
+              %p.about-text
+                #{@home.name} allows individuals to remain independent as long as possible in an environment that maximizes the person’s autonomy, dignity, privacy, and safety, as well as emphasizes family and community involvement. This facility often allows the patient to remain as long as the facility can provide any necessary services. #{@home.name} offers:
+                %ul.about-list
+                  %li Being treated with dignity and respect
+                  %li Continued practice of or abstinence from religion
+                  %li Freedom from neglect or abuse
+                  %li Freedom to interact with individuals inside and outside of the facility
+                  %li Privacy
+                  %li Receipt of all evaluations of medical needs and health-related services
+                  %li Representation in residential councils
+                  %li Retention and use of personal possessions
+                  %li Self-control of personal finances
 
-          %h2.about-header About #{@home.name}
-          -if @home.home_type = "Nursing Home"
-            %p.about-text
-              #{@home.name}, located in #{@home.city}, provides residents assistance with care that can't be offered for at home. They have nursing aides and skilled nurses on hand 24 hours a day. The staff provides medical care, as well as physical, speech and occupational therapy. #{@home.name} offers:
-              %ul.about-list
-                %li The right to be treated with dignity and respect.
-                %li The right to be informed in writing about services and fees before you enter the nursing home.
-                %li The right to manage your own money or to choose someone else you trust to do this for you.
-                %li The right to privacy, and to keep and use your personal belongings and property as long as it doesn't interfere with the rights, health, or safety of others.
-                %li The right to be informed about your medical condition, medications, and to see your own doctor. You also have the right to refuse medications and treatments.
-                %li The right to have a choice over your schedule (for example, when you get up and go to sleep), your activities and other preferences that are important to you.
-                %li The right to an environment more like a home that maximizes your comfort and provides you with assistance to be as independent as possible.
-          -else
-            %p.about-text
-              #{@home.name} allows individuals to remain independent as long as possible in an environment that maximizes the person’s autonomy, dignity, privacy, and safety, as well as emphasizes family and community involvement. This facility often allows the patient to remain as long as the facility can provide any necessary services. #{@home.name} offers:
-              %ul.about-list
-                %li Being treated with dignity and respect
-                %li Continued practice of or abstinence from religion
-                %li Freedom from neglect or abuse
-                %li Freedom to interact with individuals inside and outside of the facility
-                %li Privacy
-                %li Receipt of all evaluations of medical needs and health-related services
-                %li Representation in residential councils
-                %li Retention and use of personal possessions
-                %li Self-control of personal finances
-
-          =link_to "Find Other Locations in #{@home.city}, #{@home.state}", location_path(location: @home.city, state: @state)
-          %br
-          =link_to "Find Other Locations in #{@home.state}", location_path(location: @state)
+            =link_to "Find Other Locations in #{@home.city}, #{@home.state}", location_path(location: @home.city, state: @state)
+            %br
+            =link_to "Find Other Locations in #{@home.state}", location_path(location: @state)
 
         .row
 
