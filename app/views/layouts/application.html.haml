@@ -10,6 +10,7 @@
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
     %title #{@title}
     %meta{:content => "Adult, Elderly, Nursing Home, Assisted Living, Care, Old Age Home, Caring, Parents, Intermediate Care, #{@location}, #{@state}", :name => "keywords"}
+    %meta{:content => "#{@title}. Compare ratings and reviews of the best nursing home near you at AdultHomeDirectory.com.", :name => "description"}
     %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal", :rel => "stylesheet", :type => "text/css"}
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
