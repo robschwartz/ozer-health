@@ -2,7 +2,8 @@ class ProviderController < ActionController::Base
   layout 'application'
 
   def root
-    redirect_to home_path
+    @states = CS.states(:us)
+    set_title_tag
   end
 
   def home
