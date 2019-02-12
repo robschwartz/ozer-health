@@ -14,8 +14,8 @@
           %ul.nav.navbar-nav
             %li.active
               %a{:href => "/"} Home
-            %li
-              %a{:href => "/about"} About
+            -# %li
+            -#   %a{:href => "/about"} About
             %li
               %a{:href => "/contact"} Contact
 %section#filter
@@ -51,18 +51,18 @@
             %input.form-control{name: 'email', placeholder: 'Email', required: true}
             %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
             %input.form-control{name: 'web_referral', type:'hidden', value: "Adult Home Directory"}
-            .form-check
-              %label.form-check-label
-                Nursing Home
-                %input.form-check-input{type:'radio',name: 'home_type', value:"Nursing Home", required: true}
-            .form-check
-              %label.form-check-label
-                Assisted Living
-                %input.form-check-input{type:'radio',name: 'home_type', value:"Assisted Living Facility", required: true}
-            .form-check
-              %label.form-check-label
-                Both
-                %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
+            -# .form-check
+            -#   %label.form-check-label
+            -#     Nursing Home
+            -#     %input.form-check-input{type:'radio',name: 'home_type', value:"Nursing Home", required: true}
+            -# .form-check
+            -#   %label.form-check-label
+            -#     Assisted Living
+            -#     %input.form-check-input{type:'radio',name: 'home_type', value:"Assisted Living Facility", required: true}
+            -# .form-check
+            -#   %label.form-check-label
+            -#     Both
+            -#     %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
             %button.form-control.btn.btn-default.search-submit{type: :submit} Submit
       .clearfix
       .req-legal By submitting your information, you agree to the terms and conditions of our Privacy Policy, Terms of Use, and Agreement to be Contacted by Telephone. Your consent is not required to use our service.
