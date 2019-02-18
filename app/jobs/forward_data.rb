@@ -4,7 +4,8 @@ require 'net/http'
 module ForwardData
   def self.send_to_bucket(req_info)
 
-    url = URI("https://data-bucket.herokuapp.com/incoming")
+    # url = URI("https://data-bucket.herokuapp.com/incoming")
+    url = URI(ENV['DATA_BUCKET_URL'])
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
