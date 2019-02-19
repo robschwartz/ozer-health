@@ -28,6 +28,25 @@ class Provider < ApplicationRecord
     end
   end
 
+  def self.import_assisted_living(line)
+    prov = eval(line)
+    new_provider = Provider.where(name: prov[:name], home_type: "Assisted Living Facility").empty?
+    if new_provider
+      Provider.create(
+        name: prov[:name],
+        city: prov[:city],
+        state: prov[:state],
+        zip: prov[:zip],
+        phone: prov[:phone],
+        address: prov[:address],
+        description: prov[:text],
+        home_type: "Assisted Living Facility"
+      )
+    else
+      puts "#{prov[:name]}  already exists"
+    end
+  end
+
   private
 
   def self.location_translator(location, loc_state=nil, home_type=nil)
