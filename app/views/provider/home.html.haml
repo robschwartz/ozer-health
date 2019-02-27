@@ -61,6 +61,41 @@
             -# %a{:href => "#service"}
             -#   %i.fa.fa-angle-down
 
+            / / service
+/ cta
+%section#cta-1.section-padding
+  .container
+    .row
+      .req-info-tab
+        .col-md-12
+          .mt-boxy-color
+          .medi-info
+            %h3 Request Info
+            %p Let us do the leg work in fining you a Nursing Home that best suits your needs. Send in the form below and someone will contact you shortly.
+            %small
+              %strong.center*TIP: Enter the location where you are looking for a home.
+            = form_tag(controller: :provider , action: :req_info) do
+              .form-group.col-xs-10
+                %input.form-control{name: 'name', placeholder: 'Full Name', required: true}
+                %input.form-control{name: 'location', placeholder: 'City, State or Zip', required: true}
+                %input.form-control{name: 'email', placeholder: 'Email', required: true}
+                %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
+                %input.form-control{name: 'web_referral', type:'hidden', value: "seniorcarefacilityfinder"}
+                %select.form-control{ :name => "home_type" }
+                  %option{:value => "assisted_living"}= "Assisted Living Facility"
+                  %option{:value => "nursing_home"}= "Nursing Home"   
+                -# .form-check.form-check-inline
+                -#   %label.form-check-label
+                -#     Nursing Home
+                -#     %input.form-check-input{type:'radio',name: 'home_type', value:"Nursing Home", required: true}
+                -#   %label.form-check-label
+                -#     Assisted Living
+                -#     %input.form-check-input{type:'radio',name: 'home_type', value:"Assisted Living Facility", required: true}
+                -#   %label.form-check-label
+                -#     Both
+                -#     %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
+                %button.form-control.btn.btn-default.search-submit{type: :submit} Submit
+
 / / banner
 / service
 %section#service.section-padding
@@ -98,41 +133,6 @@
           .icon-info
             %h4 Healthcare Cost
             %p Adult Home facilities assess fees on a daily basis. If necessary, additional services and supplies may be added to a patient’s bill. Prices vary based on location and level of assistance the patient will need.
-
-/ / service
-/ cta
-%section#cta-1.section-padding
-  .container
-    .row
-      .req-info-tab
-        .col-md-12
-          .mt-boxy-color
-          .medi-info
-            %h3 Request Info
-            %p Let us do the leg work in fining you a Nursing Home that best suits your needs. Send in the form below and someone will contact you shortly.
-            %small
-              %strong.center*TIP: Enter the location where you are looking for a home.
-            = form_tag(controller: :provider , action: :req_info) do
-              .form-group.col-xs-10
-                %input.form-control{name: 'name', placeholder: 'Full Name', required: true}
-                %input.form-control{name: 'location', placeholder: 'City, State or Zip', required: true}
-                %input.form-control{name: 'email', placeholder: 'Email', required: true}
-                %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
-                %input.form-control{name: 'web_referral', type:'hidden', value: "seniorcarefacilityfinder"}
-                %select.form-control{ :name => "home_type" }
-                  %option{:value => "assisted_living"}= "Assisted Living Facility"
-                  %option{:value => "nursing_home"}= "Nursing Home"   
-                -# .form-check.form-check-inline
-                -#   %label.form-check-label
-                -#     Nursing Home
-                -#     %input.form-check-input{type:'radio',name: 'home_type', value:"Nursing Home", required: true}
-                -#   %label.form-check-label
-                -#     Assisted Living
-                -#     %input.form-check-input{type:'radio',name: 'home_type', value:"Assisted Living Facility", required: true}
-                -#   %label.form-check-label
-                -#     Both
-                -#     %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
-                %button.form-control.btn.btn-default.search-submit{type: :submit} Submit
 
 / cta
 / about
