@@ -17,6 +17,14 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
     %script{:async => true, :src=>"https://www.googletagmanager.com/gtag/js?id=UA-111635553-1"}
+    / Global site tag (gtag.js) - Google Ads: 760554848
+    %script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=AW-760554848"}
+    :javascript
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-760554848');
 
     %body#myPage{"data-offset" => "60", "data-spy" => "scroll", "data-target" => ".navbar"}
       = yield
