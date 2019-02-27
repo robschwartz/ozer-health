@@ -108,10 +108,7 @@
     .row
       .section-title
         %h2.head-title.lg-line
-          - if @home_type.blank?
-            Showing #{@homes.count} Adult Homes in #{@location}
-          - else
-            Showing #{@homes.count} #{@home_type}s in #{@location}
+          Showing results for #{@location}
         %br/
         %hr.botm-line/
         .row
