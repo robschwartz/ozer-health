@@ -495,8 +495,11 @@ footer
     color: #0cb8b6;
     text-transform: none;
 }
-@media (min-width: 551px) and (max-width: 980px){
-
+@media (min-width: 320px) and (max-width: 980px){
+    .form-mobile{ 
+        margin-top: 0;
+        width: unset;
+	}
 }
 @media (min-width: 220px) and (max-width: 551px){
 		.navbar-brand
@@ -515,6 +518,7 @@ footer
     }
     .section-title{
         margin-bottom: 30px;
+        margin: 0 12px;
     }
     .medi-info {
     	border: 0px;
@@ -544,7 +548,10 @@ footer
 		}
 
 		.request-form-container {
-			position: static;
+            position: static;
+            float: unset;
+            margin-top: 0;
+            width: unset;
 		}
 
 		.req-info-btn{
@@ -566,4 +573,8 @@ footer
 .form-check-label{
 	margin: 1% 2% !important;
 	font-size: 18px !important;
+}
+
+.navbar-fixed-top {
+    right: 0 !important;
 }
