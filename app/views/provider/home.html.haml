@@ -30,11 +30,11 @@
     .container
       .row
         .banner-info
-          .banner-logo.text-center
+          .banner-logo.text-center.home-banner-copy
             %h1.white Senior Home Finder
           .banner-text.text-center
             %h1.white Find the perfect home for your loved one
-            %p
+            %p.home-banner-copy
               Search by City, State, or Zip to find a home closest to you.
               %br/
               - flash.each do |key, value|
@@ -44,7 +44,7 @@
                   = value
               .row
                 = form_tag(controller: :provider , action: :search) do
-                  .form-group.col-xs-4.col-xs-offset-4
+                  .form-group.col-md-4.col-md-offset-4.col-xs-10.col-xs-offset-1
                     %input.form-control{name: 'search', placeholder: 'Enter City, State, or Zip...', required: true}
                     -# .form-check.form-check-inline
                     -#   %label.form-check-label
