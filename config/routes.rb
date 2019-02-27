@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get '/privacy', to: 'page#privacy'
   get '/about', to: 'page#about'
   get '/thank-you', to: 'page#thanks'
+  get '/contact', to: 'page#contact'
+  get '/search-help', to: 'page#search_help'
 
   get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
 end

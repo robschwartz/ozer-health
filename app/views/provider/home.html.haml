@@ -217,7 +217,7 @@
         %h3
         .space
         %p
-          Want to add or claim a Nursing Home on our list? Have a general question? Please fell free to contact us through the form and someone will reach out to you within 24-48 hours.
+          Want to add or claim a Nursing Home on our list? Have a general question? Contact us through the form and someone will reach out to you within 24-48 hours.
 
       .col-md-8.col-sm-8.marb20
         .contact-info
@@ -227,11 +227,16 @@
           #errormessage
           %form.contactForm{ controller: :provider, :action => "send_contact_form", :method => "post", :role => "form"}
             .form-group
-              %input#name.form-control.br-radius-zero{"data-msg" => "Please enter at least 4 chars", "data-rule" => "minlen:4", :name => "name", :placeholder => "Your Name", :type => "text"}/
+              %input#name.form-control.br-radius-zero{"data-msg" => "Please enter at least 4 chars", "data-rule" => "minlen:4", :name => "name", :placeholder => "Name", :type => "text"}/
               .validation
             .form-group
-              %input#email.form-control.br-radius-zero{"data-msg" => "Please enter a valid email", "data-rule" => "email", :name => "email", :placeholder => "Your Email", :type => "email"}/
+              %input#email.form-control.br-radius-zero{"data-msg" => "Please enter a valid email", "data-rule" => "email", :name => "email", :placeholder => "Email", :type => "email"}/
               .validation
+            .form-group
+              %input#number.form-control.br-radius-zero{"data-msg" => "Please enter a valid phone number", "data-rule" => "minlen:10", :name => "number", :placeholder => "Phone Number", :type => "tel"}/
+              .validation
+            .form-group
+              %input#location.form-control.br-radius-zero{:name => "location", :placeholder => "Zip Code (optional)", :type => "text"}
             .form-group
               %input#subject.form-control.br-radius-zero{"data-msg" => "Please enter at least 8 chars of subject", "data-rule" => "minlen:4", :name => "subject", :placeholder => "Subject", :type => "text"}/
               .validation

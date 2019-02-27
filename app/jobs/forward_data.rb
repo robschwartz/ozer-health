@@ -8,8 +8,8 @@ module ForwardData
     url = URI(ENV['DATA_BUCKET_URL'])
 
     http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    # http.use_ssl = true
+    # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Post.new(url)
     request["authorization"] = 'Basic cm9iOnJvYg=='

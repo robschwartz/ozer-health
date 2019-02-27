@@ -1,0 +1,117 @@
+.bg-color-results
+  %nav.navbar.navbar-default.navbar-fixed-top
+    .container
+      .col-md-12
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "/"}
+            -# =image_tag("ozer-logo.png", :style => "width: 140px; margin-top: -16px;", class: "img-responsive")
+            .white Senior Home Finder
+        #myNavbar.collapse.navbar-collapse.navbar-right
+          %ul.nav.navbar-nav
+            %li.active
+              %a{:href => "/"} Home
+            -# %li
+            -#   %a{:href => "/about"} About
+            %li
+              %a{:href => "/contact"} Contact
+            %li
+              %a{:href => "tel:(516)725-5312"} (516) 725-5312
+%br/
+- flash.each do |key, value|
+  %div{:class => "alert alert-#{key}-contact"}
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+    %span{"aria-hidden" => "true"}
+    = value
+%section#contact.section-padding
+  .container
+    .row
+      .col-md-12
+        %h2.ser-title Contact us
+        %hr.botm-line/
+      .col-md-4.col-sm-4
+        %h3
+        .space
+        %p
+          Couldn't find a facility that was right for you? Contact us through the form and someone will reach out to you within 24-48 hours.
+
+      .col-md-8.col-sm-8.marb20
+        .contact-info
+          %h3.cnt-ttl Send us any questions or comments
+          .space
+          #sendmessage Your message has been sent. Thank you!
+          #errormessage
+          %form.contactForm{ controller: :provider, :action => "req_info", :method => "post", :role => "form"}
+            %input.form-control{name: 'help_form', type:'hidden', value: "true"}
+            .form-group
+              %input#name.form-control.br-radius-zero{"data-msg" => "Please enter at least 4 chars", "data-rule" => "minlen:4", :name => "name", :placeholder => "Name", :type => "text"}/
+              .validation
+            .form-group
+              %input#email.form-control.br-radius-zero{"data-msg" => "Please enter a valid email", "data-rule" => "email", :name => "email", :placeholder => "Email", :type => "email"}/
+              .validation
+            .form-group
+              %input#number.form-control.br-radius-zero{"data-msg" => "Please enter a valid phone number", "data-rule" => "minlen:10", :name => "number", :placeholder => "Phone Number", :type => "tel"}/
+              .validation
+            .form-group
+              %input#location.form-control.br-radius-zero{"data-msg" => "Please enter a valid Zip Code", "data-rule" => "minlen:5", :name => "location", :placeholder => "Zip Code", :type => "text"}/
+              .validation
+            .form-action
+              %button.btn.btn-form{:type => "submit"} Send Message
+              
+
+%section#testimonial.section-padding
+  .container
+    .row
+      .col-md-3.col-sm-4.col-xs-12
+        .section-title
+          %h2.head-title.lg-line
+            Infomrative Articles
+            %br/
+          %hr.botm-line/
+          %p.sec-para Do your reserach before deciding which home is best for you or your loved one. These are some helpful articles that can help you make the right choice.
+      .col-md-9.col-sm-8.col-xs-12
+        .col-sm-9.more-features-box{:style => "visibility: visible;"}
+          .more-features-box-text
+            .more-features-box-text-icon
+              %i.fa.fa-angle-right{"aria-hidden" => "true"}
+            .more-features-box-text-description
+              %h3
+                %a.art_link{:href => "https://www.aarp.org/home-family/caregiving/info-05-2012/caregiving-resource-center-asking-right-questions.html", :target => "_blank"}
+                  Comparing Nursing Homes
+
+              %p Use this checklist to ask the right questions when choosing a long-term care facility.
+          .more-features-box-text
+            .more-features-box-text-icon
+              %i.fa.fa-angle-right{"aria-hidden" => "true"}
+            .more-features-box-text-description
+              %h3
+                %a.art_link{:href => "https://www.aarp.org/home-family/caregiving/info-05-2012/caregiving-resource-center-nursing-home-system.html", :target => "_blank"}
+                  Living in a Nursing Home
+              %p Understanding how these facilities work can mean the difference in the quality of your loved one's care.
+          .more-features-box-text
+            .more-features-box-text-icon
+              %i.fa.fa-angle-right{"aria-hidden" => "true"}
+            .more-features-box-text-description
+              %h3
+                %a.art_link{:href => "https://www.aarp.org/caregiving/basics/info-2017/parents-nursing-home-choices-bjj.html?intcmp=AE-CAR-BAS-EOA3", :target => "_blank"}
+                  When It's Time for a Nursing Home
+              %p Caregivers often feel an emotional mix of relief and guilt, reassurance and anxiety.
+          .more-features-box-text
+            .more-features-box-text-icon
+              %i.fa.fa-angle-right{"aria-hidden" => "true"}
+            .more-features-box-text-description
+              %h3
+                %a.art_link{:href => "https://www.aarp.org/caregiving/basics/info-2017/senior-housing-options-tool.html", :target => "_blank"}
+                  Senior Housing Options
+              %p Use this tool to weigh the options and make the best possible choice.
+          .more-features-box-text
+            .more-features-box-text-icon
+              %i.fa.fa-angle-right{"aria-hidden" => "true"}
+            .more-features-box-text-description
+              %h3
+                %a.art_link{:href => "https://health.usnews.com/wellness/articles/2016-11-16/how-to-pay-for-nursing-home-costs", :target => "_blank"}
+                  How to Pay for Nursing Home Costs
+              %p Medicare, Medicaid and other resources can help minimize the cost of long-term care.

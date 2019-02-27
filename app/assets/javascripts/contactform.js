@@ -78,14 +78,21 @@ jQuery(document).ready(function($) {
         });
         if( ferror ) return false;
         else var str = $(this).serialize();
+            var postUrl = "/send-contact-form"
+            if (str.includes('help_form')) {
+                postUrl = "/provider/request-info";
+            }
             $.ajax({
                 type: "POST",
-                url: "/send-contact-form",
+                url: postUrl,
                 data: str,
                 success: function(msg){
-                 // alert(msg);
-                  $("#sendmessage").addClass("show");
-                  $("#errormessage").removeClass("show");
+                    if (str.includes('help_form')) {
+                        window.location.replace("/thank-you")
+                    }
+                    // alert(msg);
+                    $("#sendmessage").addClass("show");
+                    $("#errormessage").removeClass("show");
                 }
             });
         return false;

@@ -19,7 +19,7 @@ class ProviderController < ActionController::Base
   def req_info
     # Send data from the form to our data-bucket
     ForwardData.send_to_bucket(params)
-    redirect_to thank_you_path
+    redirect_to thank_you_path and return 
   end
 
   def send_contact_form
@@ -46,8 +46,8 @@ class ProviderController < ActionController::Base
     end
 
     if @homes.empty?
-      flash[:error] = "Sorry! Your search returned 0 results. Please enter a new search or choose your city from the list below."
-      redirect_to home_path
+      flash[:error] = "Sorry! Your search returned 0 results. Fill out the form below and we'll do the search for you!"
+      redirect_to search_help_path
     end
     set_title_tag
   end
