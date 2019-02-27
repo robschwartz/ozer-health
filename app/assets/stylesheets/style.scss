@@ -134,7 +134,7 @@ banner
     background-color: rgba(12, 184, 182, 0) !important;
 }
 #banner{
-	// background: asset-url('bg-banner.jpg') no-repeat fixed;
+	background: asset-url('banner.png') no-repeat fixed;
 	background-size: cover;
 	min-height: 650px;
 	position: relative;
@@ -499,13 +499,16 @@ footer
     .form-mobile{ 
         margin-top: 0;
         width: unset;
-	}
+    }
+    .banner {
+        background: asset-url('mobile_banner.png') no-repeat fixed !important;
+        background-size: cover !important; 
+    }
 }
 @media (min-width: 220px) and (max-width: 551px){
-		.navbar-brand
-		{
-			font-size: 24px;
-		}
+    .navbar-brand{
+        font-size: 24px;
+    }
     .testi-info{
         margin-bottom: 20px;
     }
