@@ -46,7 +46,7 @@ class ProviderController < ActionController::Base
     end
 
     if @homes.empty?
-      flash[:error] = "Sorry! Your search returned 0 results. Please enter a new search."
+      flash[:error] = "Sorry! Your search returned 0 results. Please enter a new search or choose your city from the list below."
       redirect_to home_path
     end
     set_title_tag
