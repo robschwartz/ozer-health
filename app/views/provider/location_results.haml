@@ -117,22 +117,18 @@
               .col-xs-9
                 .provider-name=home.name
                 .provider-address=Provider.full_address(home)
-                .rating-container
-                  Rating:
-                  =home.overall_rating
-                  of 5
+                - if home.overall_rating
+                  .rating-container
+                    Rating:
+                    =home.overall_rating
+                    of 5
                 .medi
                 Medicare:
-                - if home.medicare
-                  .fa.fa-check-square.green
-                - else
-                  .fa.fa-minus-square.red
+                .fa.fa-check-square.green
 
                 Medicaid:
-                - if home.medicaid
-                  .fa.fa-check-square.green
-                - else
-                  .fa.fa-minus-square.red
+                .fa.fa-check-square.green
+
                 %br
               .col-md-3.col-xs-6.req-info-btn.btn.btn-default{"type"=> 'button', "data-toggle"=> "modal", "data-target"=> "#req-modal", "data-name"=> "#{home.name}", "data-provNumber"=> "#{home.id}"}
                 Request Info
