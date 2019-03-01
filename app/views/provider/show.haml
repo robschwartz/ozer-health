@@ -82,7 +82,7 @@
             .col-xs-9
               .provider-name=@home.name
               .provider-address=Provider.full_address(@home)
-              - if home.overall_rating
+              - if @home.overall_rating
                 .rating-container
                   Rating:
                   =@home.overall_rating
