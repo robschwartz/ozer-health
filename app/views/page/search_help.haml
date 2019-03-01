@@ -25,7 +25,7 @@
   %div{:class => "alert alert-#{key}-contact"}
     %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
     %span{"aria-hidden" => "true"}
-    = value
+    = value.html_safe
 %section#contact.section-padding
   .container
     .row
@@ -56,7 +56,7 @@
               %input#number.form-control.br-radius-zero{"data-msg" => "Please enter a valid phone number", "data-rule" => "minlen:10", :name => "number", :placeholder => "Phone Number", :type => "tel"}/
               .validation
             .form-group
-              %input#location.form-control.br-radius-zero{"data-msg" => "Please enter a valid Zip Code", "data-rule" => "minlen:5", :name => "location", :placeholder => "Zip Code", :type => "text"}/
+              %input#location.form-control.br-radius-zero{"data-msg" => "Please enter a valid Zip Code", "data-rule" => "minlen:5", :name => "location", :value => @location, :placeholder => "Zip Code", :type => "text"}/
               .validation
             .form-group
               %select.form-control{ :name => "home_type" }

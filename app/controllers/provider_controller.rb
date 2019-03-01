@@ -46,10 +46,19 @@ class ProviderController < ActionController::Base
     end
 
     if @homes.empty?
-      flash[:error] = "Sorry! Your search returned 0 results. Fill out the form below and we'll do the search for you!"
-      redirect_to search_help_path
+      flash[:error] = "Sorry! Your search returned 0 results. <br />Fill out the form below and we'll do the search for you!"
+    else
+      if @homes.count == 1
+        home = "home"
+      else
+        home = "homes"
+      end
+      flash[:success] = "Good news! We found #{@homes.count} #{home} in #{@location} for you! <br />Fill out the form below and we'll send the list over right away."
+      
     end
-    set_title_tag
+    # set_title_tag
+
+    redirect_to search_help_path(location: @location)
   end
 
   def show

@@ -8,6 +8,6 @@ class PageController < ActionController::Base
   def contact;end
 
   def search_help
-    
+    @location = params['location']
   end
 end
