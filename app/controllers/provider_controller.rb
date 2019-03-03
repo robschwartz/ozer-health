@@ -72,12 +72,12 @@ class ProviderController < ActionController::Base
 
   def set_title_tag
     @title = if !@location.blank?
-              "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near #{@location}"
+              "Nursing Homes And Assisted Living Facilities Near #{@location}"
             elsif !@state.blank?
-               "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near #{@state}"
-             else
-               "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near you"
-             end
+              "Nursing Homes, Assisted Living Facilities, Intermediate Care #{@state}"
+            else
+              "Nursing Homes, Assisted Living Facilities, Intermediate Care Near You"
+            end
   end
 
 
