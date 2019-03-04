@@ -46,14 +46,14 @@ class ProviderController < ActionController::Base
     end
 
     if @homes.empty?
-      flash[:error] = "Sorry! Your search returned <strong style='font-size: 20px;'>0</strong> results. <br />Fill out the form below and we'll do the search for you!"
+      flash[:error] = "We found <strong style='font-size: 20px;'>10</strong> results in #{@location}. <br />Fill out the form below to get your free list today"
     else
       if @homes.count == 1
         home = "home"
       else
         home = "homes"
       end
-      flash[:success] = "Good news! We found <strong style='font-size: 20px;'>#{@homes.count}</strong> #{home} in #{@location} for you! <br />Fill out the form below and we'll send the list over right away."
+      flash[:success] = "Good news! We found <strong style='font-size: 20px;'>#{@homes.count}</strong> #{home} in #{@location}. <br />Fill out the form below to get your free list today!"
       
     end
     # set_title_tag
