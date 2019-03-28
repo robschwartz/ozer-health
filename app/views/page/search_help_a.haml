@@ -30,13 +30,13 @@
   .container
     .row
       .col-md-12
-        %h2.ser-title GET YOUR FREE LIST!
+        %h2.ser-title GET YOUR FREE CONSULT!
         %hr.botm-line/
       .col-md-4.col-sm-4
         %h3
         .space
         %p
-          Fill out the form to get your free list of local homes and facilities that are perfect for you and your loved one.
+          Fill in the form and one of our experts will help find you the best home for your loved on.
 
       .col-md-8.col-sm-8.marb20
         .contact-info
@@ -46,6 +46,7 @@
           #errormessage
           %form.contactForm{ controller: :provider, :action => "req_info", :method => "post", :role => "form"}
             %input.form-control{name: 'help_form', type:'hidden', value: "true"}
+            %input.form-control{name: 'form_version', type:'hidden', value: "A"}
             .form-group
               %input#name.form-control.br-radius-zero{"data-msg" => "Please enter at least 4 chars", "data-rule" => "minlen:4", :name => "name", :placeholder => "Name", :type => "text"}/
               .validation
@@ -53,7 +54,7 @@
               %input#email.form-control.br-radius-zero{"data-msg" => "Please enter a valid email", "data-rule" => "email", :name => "email", :placeholder => "Email", :type => "email"}/
               .validation
             .form-group
-              %input#number.form-control.br-radius-zero{"data-msg" => "Please enter a valid phone number", "data-rule" => "minlen:10", :name => "number", :placeholder => "Phone Number", :type => "tel"}/
+              %input#number.form-control.br-radius-zero{"data-msg" => "Please enter a valid phone number", "data-rule" => "minlen:10", :name => "number", :placeholder => "Phone Number", :type => "text"}/
               .validation
             .form-group
               %input#location.form-control.br-radius-zero{"data-msg" => "Please enter a valid Zip Code", "data-rule" => "minlen:5", :name => "location", :value => @location, :placeholder => "Zip Code", :type => "text"}/

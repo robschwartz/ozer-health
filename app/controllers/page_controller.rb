@@ -8,8 +8,12 @@ class PageController < ActionController::Base
   def contact;end
 
   def search_help
+    form_version = ["a","b"]
+    version = form_version.sample
     @location = params['location']
     set_title_tag
+    puts version
+    render "search_help_#{version}"
   end
 
   private

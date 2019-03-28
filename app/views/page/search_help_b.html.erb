@@ -1,0 +1,125 @@
+<div class="bg-color-results">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            <% # =image_tag("ozer-logo.png", :style => "width: 140px; margin-top: -16px;", class: "img-responsive") %>
+            <div class="white">Senior Home Finder</div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="/">Home</a>
+            </li>
+            <% # %li %>
+            <% #   %a{:href => "/about"} About %>
+            <li>
+              <a href="/contact">Contact</a>
+            </li>
+            <li>
+              <a href="tel:(516)725-5312">(516) 725-5312</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<br/>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>-contact">
+    <button aria-label="Close" class="close" data-dismiss="alert" type="button"></button>
+    <span aria-hidden="true"></span>
+    <%= value.html_safe %>
+  </div>
+<% end %>
+<section class="section-padding" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="ser-title">GET YOUR FREE CONSULT!</h2>
+        <hr class="botm-line"/>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <h3></h3>
+        <div class="space"></div>
+        <p>
+          Fill in the form and one of our experts will help find you the best home for your loved on.
+        </p>
+      </div>
+      <div class="col-md-8 col-sm-8 marb20">
+        <div class="contact-info">
+          <div style="height:40px;"></div>
+            <div class="assessment-container container">
+              <div class="row">
+                  <div class="col-md-6 form-box">
+                      <form role="form" method="post" class="registration-form" action="javascript:void(0);" action="req_info" controller="provider">
+                          <fieldset>
+                          <input name="help_form" type="hidden" value="true">
+                          <input name="form_version" type="hidden" value="B">
+                              <div class="form-top">
+                                  <div class="form-top-left">
+                                      <h3>First, let's get basic information</h3>
+                                      <p>Let us know who our experts will be speaking to</p>
+                                  </div>
+                              </div>
+                              <div class="form-bottom">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Full Name" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Contact Number" name="number">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="email" placeholder="Email" class="form-email form-control" id="email" required>
+                                </div>
+                                
+                                <button type="button" class="btn btn-next">Next</button>
+                              </div>
+                          </fieldset>
+                          <fieldset>
+                              <div class="form-top">
+                                <div class="form-top-left">
+                                  <h3>Next, confirm the city you are searching in</h3>
+                                  <p>We want to make sure to only show you homes in the area you are interested in</p>
+                                </div>
+                              </div>
+                              <div class="form-bottom">
+                                <div class="form-group">
+                                  <input type="text" class="form-control" name="location" placeholder="City or Zipcode" value="<%= @location %>">
+                                </div>
+                                <button type="button" class="btn btn-previous">Previous</button>
+                                <button type="button" class="btn btn-next">Next</button>
+                              </div>
+                          </fieldset>
+                          <fieldset>
+                              <div class="form-top">
+                                <div class="form-top-left">
+                                  <h3>Last, let us know the move in date</h3>
+                                  <p>Some facilties don't have vacancy so we will make sure to send the ones that do</p>
+                                </div>
+                              </div>
+                              <div class="form-bottom">
+                                <div class="form-group">
+                                  <input type="date" class="form-control" id="pref_date">
+                                </div>
+                                <button type="button" class="btn btn-previous">Previous</button>
+                                <button type="submit" class="btn">Submit</button>
+                              </div>
+                          </fieldset>
+                      </form>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
