@@ -62,6 +62,7 @@
             .form-group
               %select.form-control{ :name => "home_type" }
                 %option{:value => "assisted_living"}= "Assisted Living Facility"
-                %option{:value => "nursing_home"}= "Nursing Home"   
+                %option{:value => "nursing_home"}= "Nursing Home"
+            = recaptcha_tags
             .form-action
               %button.btn.btn-form{:type => "submit"} Get My List!
