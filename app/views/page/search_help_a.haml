@@ -54,7 +54,7 @@
               %input#email.form-control.br-radius-zero{"data-msg" => "Please enter a valid email", "data-rule" => "email", :name => "email", :placeholder => "Email", :type => "email"}/
               .validation
             .form-group
-              %input#number.form-control.br-radius-zero{"data-msg" => "Please enter a valid phone number", "data-rule" => "minlen:10", :name => "number", :placeholder => "Phone Number", :type => "text"}/
+              %input#number.form-control.br-radius-zero{"data-msg" => "Please enter a valid phone number (xxx-xxx-xxxx)", "data-rule" => "phone", :name => "number", :placeholder => "Phone Number", :type => "text"}/
               .validation
             .form-group
               %input#location.form-control.br-radius-zero{"data-msg" => "Please enter a valid Zip Code", "data-rule" => "minlen:5", :name => "location", :value => @location, :placeholder => "Zip Code", :type => "text"}/
